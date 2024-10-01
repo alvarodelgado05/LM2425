@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas</title>
+</head>
+<body>
+    <h1>Tablas</h1>
+    <p>Una tabla permite la distribución de la información
+        organizada por filas (rows) y columnas (cols)
+        Se utiliza la etiqueta html de nombre <i>table</i>.
+    </p>
+    <table border="1"><!-- Indica que voy a diseñar una tabla-->
+        <tr><!-- Cada fila tiene un tr-->
+            <td>Elemento 1</td><!-- Cada celda tiene una etiqueta td-->
+            <td>Elemento 2</td>
+        </tr>
+        <tr>
+            <td>Elemento 3</td>
+            <td>Elemento 4</td>
+        </tr>
+    </table>
+    <h2>Problemas</h2>
+    <p>Vamos a experimentar problemas cuando el número
+        de columnas no sea el mismo en todas las filas.
+        Lo siguiente está mal:
+    </p>
+    <table border="1">
+        <tr>
+            <td>Elemento 1</td>
+        </tr>
+        <tr>
+            <td>Elemento 3</td>
+            <td>Elemento 4</td>
+        </tr>
+    </table>
+    <h2>Soluciones</h2>
+    <p>Si deseamos que una celda ocupe más de una columna
+        o fila entonces utilizaremos las propiedades colspan
+        o rowspan.
+    </p>
+    <table border="1">
+        <tr>
+            <td colspan="2">Elemento 1</td>
+        </tr>
+        <tr>
+            <td>Elemento 3</td>
+            <td>Elemento 4</td>
+        </tr>
+    </table>
+    <p>Otro ejemplo ahora con una celda que ocupa dos filas.
+    </p>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Elemento 1</td>
+            <td>Elemento 2</td>
+        </tr>
+        <tr>
+            <td>Elemento 4</td>
+        </tr>
+    </table>
+    <h2>Colores</h2>
+    <p>Para dar color a una celda usaremos el <i>bgcolor</i>.
+    </p>
+    <table border="1">
+        <tr>
+            <td rowspan="2" bgcolor="red">Elemento 1</td>
+            <td bgcolor="pink">Elemento 2</td>
+        </tr>
+        <tr>
+            <td bgcolor="yellow">Elemento 4</td>
+        </tr>
+    </table>
+    <p>Para darle color a las letras, usaremos <i>font</i>.
+        De todos modos, no es la forma correcta de hacerlo y
+        en el futuro aprenderemos a hacerlo con <b>css</b>.
+    </p>
+    <table border="1">
+        <tr>
+            <td bgcolor="red">
+                <font color="white">
+                    Elemento 1
+                </font>
+            </td>
+            <td bgcolor="blue">
+                <font color="white">
+                    Elemento 2
+                </font>
+        </tr>
+        <tr>
+            <td bgcolor="green">
+                <font color="yellow">
+                    Elemento 3
+                </font>
+            </td>
+            <td bgcolor="black">
+                <font color="grey">
+                    Elemento 4
+                </font>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
