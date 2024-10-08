@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario 1</title>
+    <style>
+        body {
+            font-family:'Calibri', serif;
+        }
+    </style>
 </head>
 <body>
-    
+    <form action="">
+        
+        <fieldset>
+            <legend>Rellenar</legend>
+            <input type="radio" name="idioma" value="idiomaingles">Ingés <br>
+            <input type="radio" name="idioma" value="idiomaaleman">Alemán <br>
+            <input type="radio" name="idioma" value="idiomafrances">Francés <br>
+            <label for=""></label>
+            <select id="" name="conector">
+              <option value="usb">USB</option>
+              <option value="paralelo">Paralelo</option>
+              <option value="ps2">PS2</option>
+            </select> <br>
+            <label for="">Nombre</label>
+            <input type="text" name="nombre"> <br>
+            <label for="">Apellidos</label>
+            <input type="text" name="apellidos"> <br>
+            <label for=""></label>    
+        </fieldset>
+
+        <fieldset>
+            <legend>Indique sus preferencias por favor</legend>
+            <select name="sexo" id="" size="4">
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select> <br>
+            <input type="checkbox" name="sexo" value="sexomujer">Mujer <br>
+            <input type="checkbox" name="sexo" value="sexohombre">Hombre <br>
+            <label for="">Elija una fecha:</label>
+            <input type="date" name="fecha" id="" value="dd/mm/aaaa">
+        </fieldset>
+    </form>
 </body>
 </html>
