@@ -6,6 +6,7 @@
     <title>Formulario de pago</title>
 </head>
 <body>
+    <form>
     <fieldset>
         <p><b>FORMULARIO DE PAGO</b> (Los campos obligatorios se han marcado con *)</p>
     <fieldset>
@@ -37,19 +38,20 @@
                 <option value="visa">Visa</option>
                 <option value="mastercard">Mastercard</option>
                 <option value="americanexpress">American Express</option>
-              </select> <br>
-              <p><label>Número de tarjeta: *<br>
-                <input type="numerotarjeta" name="numerotarjeta" required></label></p>
-                <p><label>Fecha de caducidad: *<br><input type="date" name="fechacaducidad" required>
-                </label></p>
-                <p><label>Cuenta de paypal: *<br>
-                    <input type="cuenta" name="cuenta" required></label></p>
-                    Método de pago preferido: <select id="" name="conector">
-                        <option value="tarjetadecredito">Tarjeta de crédito</option>
-                        <option value="paypal">Paypal</option>
-                      </select> <br>   
+            </select> <br>
+            <p><label>Número de tarjeta: *<br>
+            <input type="numerotarjeta" name="numerotarjeta" required></label></p>
+            <p><label>Fecha de caducidad: *<br><input type="date" name="fechacaducidad" required>
+            </label></p>
+            <p><label>Cuenta de paypal: *<br>
+            <input type="cuenta" name="cuenta" required></label></p>
+            Método de pago preferido: <select id="" name="conector">
+                <option value="tarjetadecredito">Tarjeta de crédito</option>
+                <option value="paypal">Paypal</option>
+            </select> <br>   
     </fieldset>
-    <p><button type="submit">VALIDAR EL PAGO</button></p>
+            <p><button type="submit">VALIDAR EL PAGO</button></p>
     </fieldset>
+    </form>
 </body>
 </html>
