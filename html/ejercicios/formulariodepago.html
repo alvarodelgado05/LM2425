@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de pago</title>
+</head>
+<body>
+    <fieldset>
+        <p><b>FORMULARIO DE PAGO</b> (Los campos obligatorios se han marcado con *)</p>
+    <fieldset>
+        <legend><b>Información de contacto</b></legend>
+        <fieldset>
+            <legend>Profesión</legend>
+            <input type="radio" name="profesion" value="profesionprofesor/a">Profesor/a <br>
+            <input type="radio" name="profesion" value="profesionestudiante">Estudiante <br>
+            <input type="radio" name="profesion" value="profesionotro">Otro <br>
+        </fieldset>
+        <fieldset>
+            <legend>Tratamiento</legend>
+            <input type="radio" name="tratamiento" value="tratamientosr/sra">Sr/Sra <br>
+            <input type="radio" name="tratamiento" value="tratamientodr/dra">Dr/Dra <br>
+            <input type="radio" name="tratamiento" value="tratamientootro">Otro <br>
+        </fieldset>
+        <p><label>Nombre: *<br>
+            <input type="nombre" name="nombre" required></label></p>
+        <p><label>Correo: *<br>
+            <input type="correo" name="correo" required></label></p>
+        <p><label>Número de teléfono: *<br>
+            <input type="telefono" name="telefono" required></label></p>
+        <p><label>Contraseña: *<br>
+            <input type="contraseña" name="contraseña" required></label></p>
+    </fieldset>
+    <fieldset>
+        <legend><b>Información de pago</b></legend>
+            Tipo de tarjeta: <select id="" name="conector">
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="americanexpress">American Express</option>
+              </select> <br>
+              <p><label>Número de tarjeta: *<br>
+                <input type="numerotarjeta" name="numerotarjeta" required></label></p>
+                <p><label>Fecha de caducidad: *<br><input type="date" name="fechacaducidad" required>
+                </label></p>
+                <p><label>Cuenta de paypal: *<br>
+                    <input type="cuenta" name="cuenta" required></label></p>
+                    Método de pago preferido: <select id="" name="conector">
+                        <option value="tarjetadecredito">Tarjeta de crédito</option>
+                        <option value="paypal">Paypal</option>
+                      </select> <br>   
+    </fieldset>
+    <p><button type="submit">VALIDAR EL PAGO</button></p>
+    </fieldset>
+</body>
+</html>
