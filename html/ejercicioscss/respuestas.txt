@@ -1,0 +1,27 @@
+EJERCICIO 1
+
+○ ¿Qué diferencias encontraste entre los tres métodos de aplicar CSS?
+Para mí, el CSS en línea es útil cuando quieres aplicar el estilo a algo puntual, es decir, a un párrafo o un título, pero si quisiera tener el mismo estilo para todos los párrafos, elegiría el CSS Interno. Pese a esto, mi preferido es el CSS Externo ya que me parece más completo y sobretodo más limpio, ya que todos los diseños quedan fuera del fichero y puedo trabajar mejor en el código con menos distracciones.
+
+○ ¿Qué ventajas ves en usar CSS externo frente a los otros métodos?
+Lo mencionado antes, la limpieza y también la comodidad para tener todos los estilos agrupados en un mismo fichero css.
+
+EJERCICIO 2
+
+○ ¿Por qué usarías una clase en lugar de un id?
+
+○ Si cambias el estilo de h2 en el CSS, ¿cómo afecta eso a otros encabezados
+h2 en la página?
+
+EJERCICIO 3
+
+○ ¿Qué diferencias hay entre alinear texto usando CSS y hacerlo con HTML?
+
+○ ¿Cómo cambiarías los márgenes o el padding para mejorar el diseño de los
+párrafos?
+
+EJERCICIO 4
+
+○ ¿Por qué los selectores combinados son útiles?
+
+○ ¿Cómo afecta la estructura HTML a los selectores que puedes usar?
