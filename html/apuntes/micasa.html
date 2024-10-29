@@ -5,6 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi casa</title>
     <style>
+        body {
+            background-color: lightskyblue;
+        }
+
+        #tejado {
+            width: 840px;
+            height: 250px;
+            position: absolute;
+            top: -160px;
+            left: 150px;
+            z-index: 1;
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            border-bottom: 160px solid peru;
+        }
+        #sol {
+            width: 160px;
+            height: 160px;
+            background-color: goldenrod;
+            position: absolute;
+            top: 30px;
+            left: 1105px;
+            border-top-left-radius: 100%;
+            border-top-right-radius: 100%;
+            border-bottom-left-radius: 100%;
+            border-bottom-right-radius: 100%;
+        }
+
+        #hierba {
+            background-color: green;
+            width: 10000px;
+            height: 300px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            z-index: -1;
+        }
+
         #fachada {
             background-color: brown;
             width: 1000px;
@@ -16,7 +54,7 @@
         #v1 {
             width: 180px;
             height: 200px;
-            background-color:  rgb(79, 199, 255);
+            background-color:  grey;
             position: absolute;
             top: 100px;
             left: 100px;
@@ -26,7 +64,7 @@
         #v2 {
             width: 180px;
             height: 200px;
-            background-color: rgb(79, 199, 255);
+            background-color: grey;
             position: absolute;
             top: 100px;
             left: 725px;
@@ -58,6 +96,9 @@
     </style>
 </head>
 <body>
+    <div id="tejado"></div>
+    <div id="sol"></div>
+    <div id="hierba"></div>
     <div id="fachada">
         <div id="v1">
             
