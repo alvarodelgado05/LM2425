@@ -25,3 +25,5 @@ EJERCICIO 4
 ○ ¿Por qué los selectores combinados son útiles?
 
 ○ ¿Cómo afecta la estructura HTML a los selectores que puedes usar?
+
+    <!--SIN TERMINAR-->
