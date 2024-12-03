@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario 3</title>
 </head>
 <body>
-        <!--SIN TERMINAR-->
+<fieldset>
+
+    <legend>Preferencias</legend>
+
+    <select name="velocidad" id="">
+    <option value="100 Mbits">100 Mbits</option>
+    <option value="1000 Mbits">1000 Mbits</option>
+    </select><br> <br>
+
+    <label for="DNI">DNI:</label>
+    <input type="text" name="dni"><br> <br>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre"><br> <br>
+
+    <label for="apellidos">Apellidos:</label>
+    <input type="text" name="apellidos"><br> <br>
+
+    <label for="email">Email::</label>
+    <input type="text" name="email"><br> <br>
+
+    <label for="colores">Elija un color:</label>
+    <input type="color" name="colores" value="ff0000"> <br>
+
+    <textarea name="mensaje" id="" style="width: 300px; height: 100px;" >Por favor, escriba aquí</textarea><br>
+   
+    <input type="checkbox" name="procesador" value="procesadoramd">
+    <label for="">AMD</label> <br>
+    <input type="checkbox" name="procesdor" value="procesaadorintel_i5">
+    <label for="">Intel i5</label> <br>
+    <input type="checkbox" name="procesador" value="procesadorintel_i7">
+    <label for="">Intel i7</label> <br> <br>
+
+    <label for="hora">Elija una hora:</label>
+    <input type="time" name="hora" id="hora"> <br>
+
+    <input type="radio" name="red" id="" value="red2g">2G <br>
+    <input type="radio" name="red" id="" value="red3g">3G <br>
+    <input type="radio" name="red" id="" value="red4g">4G <br>
+    
+</fieldset>
 </body>
 </html>
