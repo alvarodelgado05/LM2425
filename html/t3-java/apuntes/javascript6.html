@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 6</title>
+    <style>
+        #caja {
+            height: 90px;
+            line-height: 90px;
+            text-align: center;
+            border: 2px dashed #f69c55;
+        }
+    </style>
+</head>
+<body>
+    <h1>Utilidades de JavaScript</h1>
+
+    <div id="caja">
+        Ahora estoy
+    </div>
+
+    <button type="button" onclick='document.getElementById("caja").style.display="none"'>
+        Clic para ocultar la caja
+    </button>
+
+    <button type="button" onclick='document.getElementById("caja").style.display="block"'>
+        Clic para mostrar la caja
+    </button>
+</body>
+</html>
