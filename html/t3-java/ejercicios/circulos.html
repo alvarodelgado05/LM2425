@@ -5,12 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Círculos</title>
     <script src="circulos.js"></script>
+    <style>
+        .contenedor {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .circulo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        #circulo1 {
+            background-color: red;
+        }
+
+        #circulo2 {
+            background-color: green;
+        }
+
+        #circulo3 {
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
     <h1>Ocultar círculos con JavaScript</h1>
 
-    <button type="button" onclick='document.getElementsByTagName()'>
+    <div class="contenedor">
+        <div class="circulo" id="circulo1"></div>
+        <div class="circulo" id="circulo2"></div>
+        <div class="circulo" id="circulo3"></div>
+    </div>
 
-    </button>
+    <div class="contenedor">
+        
+        <button onclick="ocultar('circulo1')">
+            Ocultar
+        </button>
+        
+        <button onclick="ocultar('circulo2')">
+            Ocultar
+        </button>
+        
+        <button onclick="ocultar('circulo3')">
+            Ocultar
+        </button>
+
+    </div>
+
+    <div class="contenedor">
+        
+        <button onclick="mostrar('circulo1')">
+            Mostrar
+        </button>
+        
+        <button onclick="mostrar('circulo2')">
+            Mostrar
+        </button>
+        
+        <button onclick="mostrar('circulo3')">
+            Mostrar
+        </button>
+
+    </div>
 </body>
 </html>
