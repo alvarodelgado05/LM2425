@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<body>
+
+    <h1>Cálculo del Índice de Masa Corporal</h1>
+
+    <input type="text" id="masa" placeholder="Introduce la masa en kg">
+    <input type="text" id="estatura" placeholder="Introduce la estatura en m">
+    <button onclick="calculaIMC()">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        function calculaIMC() {
+            let masa = parseFloat(document.getElementById("masa").value);
+            let estatura = parseFloat(document.getElementById("estatura").value);
+            
+            if (isNaN (masa) || isNaN(estatura)) {
+                document.getElementById("resultado").innerHTML = "Debes introducir valores numéricos.";
+            }
+            
+            else {
+            if (estatura <= 0) {
+                document.getElementById("resultado").innerHTML = "Debes introducir valores numéricos positivos.";
+            }
+                let imc = (masa/(estatura*estatura))
+                document.getElementById("resultado").innerHTML = imc;
+            }
+
+        }
+    </script>
+    
+</body>
+</html>
