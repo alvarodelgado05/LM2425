@@ -12,18 +12,36 @@
 
     <h1>Conversor de grados Celsius a grados Farenheit</h1>
 
-    <input type="text" id="grados">
+    <input type="text" id="grados" placeholder="Introduzca los grados">
+    <button onclick="convertirCelsius()">Convertir a Celsius</button>
+    <button onclick="convertirFarenheit()">Convertir a Farenheit</button>
+    <p id="resultado"></p>
+    
+    <script>
+        function convertirCelsius() {
+            let resultado = grados
 
-    let resultado = grados
+            if (isNan(resultado)) {
+                document.getElementById("resultado").innerHTML = "Debes introducir un número.";
+            }
 
-    if (isNan(resultado)) {
-        document.getElementById("resultado").innerHTML = "Debes introducir un número.";
-    }
+            else {
+            document.getElementById("resultado").innerHTML = "La conversión a Celsius es de: "
+            }
+        }
+        
+        function convertirFarenheit() {
+            let resultado = grados
 
-    else
-    {
-        document.getElementById("resultado").innerHTML = "La conversión a Farenheit es de:"
-    }
+            if (isNan(resultado)) {
+                document.getElementById("resultado").innerHTML = "Debes introducir un número.";
+            }
 
+            else {
+            document.getElementById("resultado").innerHTML = "La conversión a Farenheit es de: "
+            }
+        }
+    </script>
+   
 </body>
 </html>
