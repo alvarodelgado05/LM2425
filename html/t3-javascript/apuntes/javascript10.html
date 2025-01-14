@@ -7,26 +7,26 @@
 </head>
 <body>
     
-<h1>Prueba de variable global</h1>
+    <h1>Prueba de variable global</h1>
 
-<button onclick="suma()">Incrementa</button>
-<button onclick="resta()">Decrementa</button>
-<p id="demo"></p>
+    <button onclick="suma()">Incrementa</button>
+    <button onclick="resta()">Decrementa</button>
+    <p id="demo"></p>
 
-<script>
-    var numero=1; // Variable declarada de manera global
-    document.getElementById("demo").innerHTML = numero;
+    <script>
+        var numero=1; // Variable declarada de manera global
+        document.getElementById("demo").innerHTML = numero;
 
-    function resta() {
-    numero -=1;
-    document.getElementById("demo").innerHTML = numero;
-    }
+        function resta() {
+        numero -=1;
+        document.getElementById("demo").innerHTML = numero;
+        }
     
-    function suma() {
-    numero +=1;
-    document.getElementById("demo").innerHTML = numero;
-    }
-</script>
+        function suma() {
+        numero +=1;
+        document.getElementById("demo").innerHTML = numero;
+        }
+    </script>
 
 </body>
 </html>
