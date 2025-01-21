@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 16</title>
+</head>
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        var text;
+        var fecha = newDate();
+        switch (fecha.getDay()) {
+            case 0:
+                text = "Hoy es domingo";
+                break;
+            case 1:
+                text = "Hoy es lunes";
+                break;
+            case 2:
+                text = "Hoy es martes";
+                break;
+            case 3:
+                text = "Hoy es miércoles";
+                break;
+            case 4:
+                text = "Hoy es jueves";
+                break;
+            case 5:
+                text = "Hoy es viernes";
+                break;
+            case 6:
+                text = "Hoy es sábado";
+                break;
+            default:
+                text = "Deseando que llegue el finde";
+        }
+
+        document.getElementById("demo").innerHTML = text;
+        
+    </script>
+    
+</body>
+</html>

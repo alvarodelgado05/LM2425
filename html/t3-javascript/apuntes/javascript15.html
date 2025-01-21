@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 15</title>
+</head>
+<body>
+    
+    <h1>Adivina un número entre 1 y 10:</h1>
+
+    <input id="entrada" type="textbox" placeholder="Escribe un número">
+    <button id="boton" onclick="comprueba()">Probar</button>
+    <p id="resultado"></p>
+
+    <script>
+        var numero = 8;
+        
+        function comprueba() {
+            var entrada = document.getElementById("entrada").value;
+            
+            if (entrada>numero) {
+                document.getElementById("resultado").innerHTML = "Lo siento, el número era menor...";
+            }
+            
+            else if (entrada==numero) {
+                document.getElementById("resultado").innerHTML = "¡Has acertado!";
+            }
+
+            else {
+                document.getElementById("resultado").innerHTML = "Lo siento, el número era mayor...";
+            }
+        }
+    </script>
+
+    <p>
+        <b>Ejercicio:</b> Modifique el script para que el número elegido por el sitio web sea aleatorio. Busque
+        en la web cómo generar un número aleatorio en JavaScript en un rango determinado.
+    </p>
+
+    <!-- SIN HACER -->
+
+</body>
+</html>

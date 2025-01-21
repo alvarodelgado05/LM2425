@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 14</title>
+</head>
+<body>
+    
+    <h1>Objetos</h1>
+
+    <p id="nombre"></p>
+    <p id="tipoCombustible"></p>
+    <p id="velocidad"></p>
+    <p id="estado"></p>
+
+    <script>
+        var coche = {
+            // Propiedades
+            nombre: "BMW",
+            tipoCombustible: "Gasolina",
+            cantidadCombustible: "0",
+            velocidad: "0",
+            modelo: "318",
+            potencia: "135",
+            peso: "815",
+            color: "Azul",
+            estado: "Detenido",
+
+            // Métodos
+            repostar: function(n) {
+                this.cantidadCombustible=n;
+            },
+            arrancar: function() {
+                this.estado="En marcha";
+            },
+            detener: function() {
+                this.estado="Detenido";
+            },
+            frenar:function() {
+                this.estado="Frenando";
+            },
+            acelerar:function() {
+                this.estado="En marcha";
+            }
+        };
+
+        document.getElementById("nombre").innerHTML = coche.nombre;
+        document.getElementById("tipoCombustible").innerHTML = coche.tipoCombustible;
+        coche.acelerar(120);
+        document.getElementById("velocidad").innerHTML = coche.velocidad;
+        document.getElementById("estado").innerHTML = coche.estado;
+    </script>
+
+</body>
+</html>
