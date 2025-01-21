@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área del círculo</title>
+</head>
+<body>
+
+    <h1>Calcular el área de un círculo</h1>
+
+    <input type="text" id="radio" placeholder="Radio del círculo en cm">
+    <button onclick="calcularArea()">
+        Calcular área
+    </button>
+    <p id="resultado"></p>
+
+    <script>
+            function calcularArea() {
+            let radio = parseFloat(document.getElementById("radio").value);
+            let area = (3.14 * radio * radio);
+            document.getElementById("resultado").innerHTML = "El área del círculo es: " + area;
+        }
+    </script>
+    
+</body>
+</html>
