@@ -29,7 +29,7 @@
     <input type="text" id="sost" placeholder="Nota de Sostenibilidad">
 
     <p>
-        <button onclick="calcularMedia()">
+        <button onclick="calcularExpediente()">
             Calcular aprobados, suspensos y media
         </button>
         <p id="aprobadosSuspensos"></p>
@@ -37,7 +37,7 @@
     </p>
 
     <script>
-        function calcularMedia() {
+        function calcularExpediente() {
             var aprobado = 0;
             var suspenso = 0;
             var media;
@@ -51,9 +51,8 @@
             var dig = parseFloat(document.getElementById("dig").value);
             var sost = parseFloat(document.getElementById("sost").value);
 
-            if (isNaN(iso) || isNaN(bd) || isNaN(fh) || isNaN(redes) || 
-            isNaN(lm) || isNaN(fol) || isNaN(dig) || isNaN(sost)) {
-                document.getElementById("aprobadosSuspensos").innerHTML = "Por favor, introduce valores numéricos.";
+            if (isNaN(iso) || isNaN(bd) || isNaN(fh) || isNaN(redes) || isNaN(lm) || isNaN(fol) || isNaN(dig) || isNaN(sost)) {
+                document.getElementById("aprobadosSuspensos").innerHTML = "Por favor, introduce correctamente tus notas.";
             }
             
             else {
@@ -127,7 +126,7 @@
             }
 
             document.getElementById("aprobadosSuspensos").innerHTML = "Has aprobado " + aprobado + " y suspendido " + suspenso + " asignaturas.";
-            document.getElementById("media").innerHTML = "Tu media total es de " + media;
+            document.getElementById("media").innerHTML = "Tu media total es de " + media + ".";
         }
 
 
