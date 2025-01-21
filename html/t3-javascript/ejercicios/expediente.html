@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de expediente</title>
+</head>
+<body>
+    
+    <h1>Calculador de expediente académico</h1>
+
+    <h2>Introduce tus notas en las respectivas cajas:</h2>
+
+    <p>Implantación de Sistemas Operativos</p>
+    <input type="text" id="iso" placeholder="Nota de ISO">
+    <p>Base de Datos</p>
+    <input type="text" id="bd" placeholder="Nota de BD">
+    <p>Fundamentos Hardware</p>
+    <input type="text" id="fh" placeholder="Nota de FH">
+    <p>Redes de Área Local</p>
+    <input type="text" id="redes" placeholder="Nota de Redes">
+    <p>Lenguaje de Marcas</p>
+    <input type="text" id="lm" placeholder="Nota de LM">
+    <p>Formación y Orientación Laboral</p>
+    <input type="text" id="fol" placeholder="Nota de FOL">
+    <p>Digitalización</p>
+    <input type="text" id="dig" placeholder="Nota de Digitalización">
+    <p>Sostenibilidad</p>
+    <input type="text" id="sost" placeholder="Nota de Sostenibilidad">
+
+    <p>
+        <button onclick="calcularMedia()">
+            Calcular aprobados, suspensos y media
+        </button>
+        <p id="aprobadosSuspensos"></p>
+        <p id="media"></p>
+    </p>
+
+    <script>
+        function calcularMedia() {
+            var aprobado = 0;
+            var suspenso = 0;
+            var media;
+
+            var iso = parseFloat(document.getElementById("iso").value);
+            var bd = parseFloat(document.getElementById("bd").value);
+            var fh = parseFloat(document.getElementById("fh").value);
+            var redes = parseFloat(document.getElementById("redes").value);
+            var lm = parseFloat(document.getElementById("lm").value);
+            var fol = parseFloat(document.getElementById("fol").value);
+            var dig = parseFloat(document.getElementById("dig").value);
+            var sost = parseFloat(document.getElementById("sost").value);
+
+            if (isNaN(iso) || isNaN(bd) || isNaN(fh) || isNaN(redes) || 
+            isNaN(lm) || isNaN(fol) || isNaN(dig) || isNaN(sost)) {
+                document.getElementById("aprobadosSuspensos").innerHTML = "Por favor, introduce valores numéricos.";
+            }
+            
+            else {
+
+                if (iso<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (bd<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (fh<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (redes<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (lm<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (fol<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (dig<5) {
+                    suspenso = suspenso +1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+
+                if (sost<5) {
+                    suspenso = suspenso + 1;
+                }
+
+                else {
+                    aprobado = aprobado + 1;
+                }
+                
+                media = ((iso + bd + fh + redes + lm + fol + dig + sost)/8);
+                
+            }
+
+            document.getElementById("aprobadosSuspensos").innerHTML = "Has aprobado " + aprobado + " y suspendido " + suspenso + " asignaturas.";
+            document.getElementById("media").innerHTML = "Tu media total es de " + media;
+        }
+
+
+    </script>
+
+</body>
+</html>
