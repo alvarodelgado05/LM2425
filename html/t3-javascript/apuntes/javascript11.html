@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 11</title>
+</head>
+<body>
+
+    <p>Prueba de variable local</p>
+
+    <button onclick="pruebaVariableLocal()">Prueba</button>
+    <p id="dentro"></p>
+    
+    <script>
+alert("Fuera de la función la variable a no existe y produce un error en esta línea" + a); // Mira el inspector de código, consola
+    function pruebaVariableLocal() {
+    var a;
+    a = 44;
+    document.getElementById("dentro").innerHTML = "Dentro de la función lan variable a vale + a";
+    }
+    </script>
+    
+</body>
+</html>
