@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par o impar</title>
+
+    <h1>Calculador de número par/impar</h1>
+
+    <input type="text" id="numero" placeholder="Introduce número">
+    <button onclick="verificar()">
+        Verificar
+    </button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificar() {
+            var numero = parseInt(document.getElementById("numero").value);
+            var restoDivision = numero % 2;
+            
+            if (isNaN(numero)) {
+                document.getElementById("resultado").innerHTML = "Por favor, introduce un número."
+            }
+
+            else {
+
+                if (restoDivision == 1) {
+                    document.getElementById("resultado").innerHTML = "El número es impar."
+                }
+
+                else {
+                    document.getElementById("resultado").innerHTML = "El número es par."
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
