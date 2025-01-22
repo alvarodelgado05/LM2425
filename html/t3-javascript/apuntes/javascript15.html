@@ -12,23 +12,29 @@
     <input id="entrada" type="textbox" placeholder="Escribe un número">
     <button id="boton" onclick="comprueba()">Probar</button>
     <p id="resultado"></p>
+    <p id="intentos"></p>
 
     <script>
-        var numero = 8;
-        
+        var numero = Math.floor(Math.random()*10+1);
+        var intentos = 0;
+
         function comprueba() {
             var entrada = document.getElementById("entrada").value;
             
             if (entrada>numero) {
                 document.getElementById("resultado").innerHTML = "Lo siento, el número era menor...";
+                intentos = intentos + 1;
             }
             
             else if (entrada==numero) {
+                intentos = intentos + 1;
                 document.getElementById("resultado").innerHTML = "¡Has acertado!";
+                document.getElementById("intentos").innerHTML = "Has acertado en " + intentos + " intentos.";
             }
 
             else {
                 document.getElementById("resultado").innerHTML = "Lo siento, el número era mayor...";
+                intentos = intentos +1;
             }
         }
     </script>
