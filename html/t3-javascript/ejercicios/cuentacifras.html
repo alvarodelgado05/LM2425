@@ -17,15 +17,17 @@
 
     <script>
         function calcularCifras() {
-            var n = parseFloat(document.getElementById("n").value);
-            var total;
+            var n = document.getElementById("n").value;
 
-            if (isNaN (n) || n<=0) {
+            if (isNaN (n) || n <= 0) {
                 document.getElementById("resultado").innerHTML = "Debes introducir un NÚMERO ENTERO y POSITIVO.";
             return;
             }
-                total = n.lenght;
+
+            else {
+                var total = n.ToString().length;
                 document.getElementById("resultado").innerHTML = "El número contiene " + total + " cifras."                
+            }
         }
     </script>
 
