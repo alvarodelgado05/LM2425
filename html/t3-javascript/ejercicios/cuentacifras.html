@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de cifras</title>
+</head>
+<body>
+
+    <h1>Contador de cifras</h1>
+
+    <input type="text" id="n" placeholder="Introduce un número entero...">
+    <button onclick="calcularCifras()">
+        Calcular
+    </button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcularCifras() {
+            var n = parseFloat(document.getElementById("n").value);
+            var total;
+
+            if (isNaN (n) || n<=0) {
+                document.getElementById("resultado").innerHTML = "Debes introducir un NÚMERO ENTERO y POSITIVO.";
+            return;
+            }
+                total = n.lenght;
+                document.getElementById("resultado").innerHTML = "El número contiene " + total + " cifras."                
+        }
+    </script>
+
+</body>
+</html>

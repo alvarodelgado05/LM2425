@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de arrays</title>
+</head>
+<body>
+
+    <h1>Lista de elementos con arrays</h1>
+
+    <p>Pulsa el botón para añadir números:</p>
+
+    <input type="number" id="entrada" placeholder="Escribe un número...">
+    
+    <p>
+        <button onclick="anadir()">
+            Añadir
+        </button>
+        <p id="resultado"></p>
+    
+        <button onclick="ordenar()">
+            Ordenar
+        </button>
+        <p id="orden"></p>
+    </p>
+   
+
+    <script>
+        let array = [];
+
+        function anadir() {
+            let entrada = document.getElementById("entrada").value;
+            let resultado = document.getElementById("resultado").value;
+            array.push(entrada);
+            document.getElementById("resultado").innerHTML = array;
+        }
+    </script>
+
+</body>
+</html>

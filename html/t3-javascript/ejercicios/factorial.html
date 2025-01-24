@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Factorial</title>
+</head>
+<body>
+
+    <h1>Calculadora de número factorial</h1>
+
+    <input type="text" id="n" placeholder="Introduce un número...">
+    <button onclick="calcular()">
+        Calcular
+    </button>
+    <p id="resultado"></p>
+
+    <script>
+        function calcular() {
+            var n = parseInt(document.getElementById("n").value);
+            var total = 1;
+
+            if (isNaN(n) || n<0) {
+                document.getElementById("resultado").innerHTML = "Por favor, introduce un número ENTERO y POSITIVO."
+                return;
+            }
+
+            else {
+                for (var i=1; i<=n; i++) {
+                total = total * i;
+                }
+            }
+            document.getElementById("resultado").innerHTML = "El factorial de " + n + " es " + total;
+        }
+    </script>
+    
+</body>
+</html>
