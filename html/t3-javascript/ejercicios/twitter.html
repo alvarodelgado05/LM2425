@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red social</title>
+</head>
+<body>
+
+    <h1>Comparte tus tweets</h1>
+
+    <input type="text" id="mensaje" placeholder="Escribe tu mensaje...">
+    <button onclick="anadir()">Publicar</button>
+    <div>
+        <img src="">
+        <p id="caja"></p>
+        <img src="">
+    </div>
+
+    <script>
+        var array = []
+
+        function anadir ()
+        {
+            var mensaje = document.getElementById('mensaje').value;
+            array.push(mensaje);
+
+            document.getElementById('caja').innerHTML = mensaje;
+        }
+    </script>
+</body>
+</html>

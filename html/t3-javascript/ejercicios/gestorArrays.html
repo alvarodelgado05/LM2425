@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestor de arrays</title>
+    <script src="gestorArrays.js"></script>
 </head>
 <body>
 
@@ -11,31 +12,12 @@
 
     <p>Pulsa el botón para añadir números:</p>
 
-    <input type="number" id="entrada" placeholder="Escribe un número...">
-    
-    <p>
-        <button onclick="anadir()">
-            Añadir
-        </button>
-        <p id="resultado"></p>
-    
-        <button onclick="ordenar()">
-            Ordenar
-        </button>
-        <p id="orden"></p>
-    </p>
-   
-
-    <script>
-        let array = [];
-
-        function anadir() {
-            let entrada = document.getElementById("entrada").value;
-            let resultado = document.getElementById("resultado").value;
-            array.push(entrada);
-            document.getElementById("resultado").innerHTML = array;
-        }
-    </script>
+    <input type="text" id="num" placeholder="Introduce un número...">
+    <button onclick="anadir()">Añadir</button>
+    <button onclick="ordenar()">Ordenar</button>
+    <button onclick="media()">Calcular media</button>
+    <p id="final"></p>
+    <p id="media"></p>
 
 </body>
 </html>
