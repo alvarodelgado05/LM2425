@@ -10,7 +10,7 @@ function anadir()
         return;
     }
     lista.push(numero);
-    document.getElementById('final').innerHTML = "El nº " + numero + " ha sido añadido";
+    document.getElementById("final").innerHTML = "El nº " + numero + " ha sido añadido";
 }
 
 function ordenar()
