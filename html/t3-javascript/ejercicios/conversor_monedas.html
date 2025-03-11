@@ -6,6 +6,38 @@
     <title>Conversor de monedas</title>
 </head>
 <body>
-    <!-- SIN TERMINAR -->
+    <script>
+        function euros() {
+            document.getElementById('xx').addEventListener('submit'), function(event) 
+            {
+                event.preventDefault();
+                var euro=document.getElementById("euros").value;
+                var conversor;
+                conversor=euro*0.94;
+                alert ("Su conversión a dolar son: "+conversor);
+            }
+        }
+
+        function dolares() {
+            event.preventDefault();
+            var dolar=document.getElementById("dolares").value;
+            var conversor;
+            conversor=dolar*0.94;
+            alert ("Su conversión a euros son: "+conversor);
+        }
+    </script>
+    <form>
+        <fieldset>
+            <legend>Conversor de dinero</legend>
+            <label>Euros </label>
+            <input type="text" name="euros" id="euros"><br>
+            <button onclick="euros()">Convertir a dolar</button>
+            <br><br>
+            <label>Dólares </label>
+            <input type="text" name="dolares" id="dolares">
+            <br><br>
+            <button onclick="dolares()">Convertir a euro</button>
+        </fieldset>
+    </form>
 </body>
 </html>

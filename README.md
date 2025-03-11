@@ -10,7 +10,6 @@ En el primer tema vamos a trabajar con Markdown que es un lenguaje sencillo de m
 1. Extensión de los archivos Markdown(.md)
 2. Cómo escribir títulos y subtítulos
 3. Cómo crear listas no numeradas y numeradas
-4. Establecer enlaces como [este](https://markdown.es/sintaxis-markdown/#links)
-
-
-**Un ejemplo de negrita**
+4. Establecer enlaces como [este](https://markdown.es/sintaxis-markdown/#links), o por ejemplo los tipos de letra, como este, **Un ejemplo de negrita**
+<br>
+Los ejercicios, apuntes y trabajos están ordenados en cada carpeta.
