@@ -1,5 +1,5 @@
 # Repositorio de Lenguaje de Marcas 2024-25
-## Autor: Álvaro Delgado
+## Autor: Álvaro Delgado Barrio
 En este repositorio vamos a alojar todos los ficheros que vayamos desarrollando durante el curso. En el primer tema de LM tendréis que instalar:
 - git
 - Visual Studio Code
