@@ -9,11 +9,11 @@
 
     <h1>Ejercicio con lista de tareas</h1>
 
-    <input type="text" placeholder="Añade una nueva tarea..." id="tarea">
+    <input type="text" placeholder="Añade una nueva tarea..." id="entrada">
     <button onclick="agregarTarea()">Agregar</button>
 
+    <br> <br>
     <p id="tareas"></p>
-    <ul id="lista"></ul>
 
     <script>
 
@@ -32,10 +32,10 @@
 
 
         function cargaListaTareas() {
-            let tareas = JSON.parse(localStorage.getItem("tareas"));
+            let arrayTareas = JSON.parse(localStorage.getItem("tareas"));
 
             if (tareas != null) {
-                document.getElementById("tareas").innerHTML = tareas;
+                document.getElementById("tareas").innerHTML = arrayTareas;
             }
 
 

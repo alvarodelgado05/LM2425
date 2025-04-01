@@ -32,6 +32,21 @@
 
         window.onload = cargaDatos();
 
+        function cargaListaTareas() {
+            let arrayTareas = JSON.parse(localStorage.getItem("tareas"));
+
+            if (tareas != null) {
+                document.getElementById("tareas").innerHTML = arrayTareas;
+            }
+
+
+            else {
+                document.getElementById("tareas").innerHTML = "No hay tareas en la lista.";
+            }
+        }
+
+        window.onload = cargaListaTareas;
+
     </script>
 </body>
 </html>
