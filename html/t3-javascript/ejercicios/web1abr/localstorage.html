@@ -9,20 +9,29 @@
     <input type="text" id="texto">
     <button id="guardar" onclick="guardar()">Guardar</button>
     <button onclick="limpiar()">Limpiar</button>
+    
     <script>
+
         function limpiar(){
-localStorage.clear();
-document.getElementById("Inicio").inner.Html = "";
+            localStorage.clear();
+            document.getElementById("Inicio").inner.Html = "";
         }
+        
+        
         function guardar(){
             localStorage.setItem("texto", document.getElementById("texto").value);
         }
+        
+        
         function cargaDatos(){
+            
             if(localStorage.getItem("texto") !=null) {
-document.getElementById("Inicio").innerHTML = localStorage.getItem("texto");
+                document.getElementById("Inicio").innerHTML = localStorage.getItem("texto");
             }
         }
+
         window.onload = cargaDatos();
+
     </script>
 </body>
 </html>
