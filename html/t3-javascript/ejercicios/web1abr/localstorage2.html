@@ -1,45 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cambio de tema</title>
+<meta charset="UTF-8">
+<title>Ejercicio 2: Cambio de Tema</title>
+<script>
+function cambiarTema(tema) {
+    document.body.className = tema;
+    localStorage.setItem('tema', tema);
+}
+
+window.onload = function() {
+    const temaGuardado = localStorage.getItem('tema');
+    if (temaGuardado) {
+        document.body.className = temaGuardado;
+    }
+};
+</script>
+<style>
+.dark {
+    background-color: #333;
+    color: white;
+}
+.light {
+    background-color: #FFF;
+    color: black;
+}
+</style>
 </head>
 <body>
 
-    <h1>Bienvenidos a la página web</h1>
-
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni officiis totam quisquam cumque cupiditate fugiat! Voluptatibus odit eum, eveniet praesentium inventore id voluptatum quibusdam voluptates dolor ullam sunt consectetur saepe?</p>
-    
-    <button onclick="cambiarTema('oscuro')">Tema oscuro</button>
-    <button onclick="cambiarTema('claro')">Tema claro</button>
-
-    <script>
-
-        function cambiarTema(tema) {
-            if (tema === 'oscuro') {
-                document.body.style.backgroundColor = 'black';
-                document.body.style.color = 'white';
-            }
-
-            else {
-                document.body.style.backgroundColor = 'white';
-                document.body.style.color = 'black';
-            }
-            localStorage.setItem('tema', tema); // Guardar el tema en localStorage
-        }
-
-        function cargarTema() {
-            const temaGuardado = localStorage.getItem('tema');
-            if (temaGuardado) {
-                cambiarTema(temaGuardado);
-            }
-        }
-
-        window.onload = cargarTema; // Cargar el tema al cargar la página
-
-    </script>
-
+<button onclick="cambiarTema('light')">Tema Claro</button>
+<button onclick="cambiarTema('dark')">Tema Oscuro</button>
 
 </body>
 </html>
