@@ -1,31 +1,31 @@
 const productos = [
     {
         id: 0,
-        nombre: "Smartphone SAMSUNG GALAXY A05s",
-        descripcion: "El Galaxy A05s ofrece una experiencia inmersiva con su pantalla FHD+ de 6,7 pulgadas, potente procesador Snapdragon 680 y batería de 5.000 mAh con carga rápida. Disfruta de un diseño elegante, múltiples cámaras y funciones prácticas como lector de huella y jack de 3,5 mm.",
-        precio: 140.75,
-        imagen: "samsung.jpeg"
+        nombre: "Peluche palmerín",
+        descripcion: "Este adorable peluche de Palmerín, la simpática mascota andaluza, está hecho con materiales suaves y de alta calidad, ideal para abrazar. Con su diseño alegre y colores vibrantes, es perfecto tanto para niños como para coleccionistas.",
+        precio: 9.99,
+        imagen: "peluche.jpg"
     },
     {
         id: 1,
-        nombre: "Smartphone APPLE IPHONE 15",
-        descripcion: "El iPhone 15 destaca por su nuevo diseño con bordes curvos, puerto USB-C y pantalla Super Retina XDR de 6,1 pulgadas con Dynamic Island. Incorpora el potente chip A16 Bionic, cámara principal de 48 MP y mejoras en autonomía y durabilidad.",
-        precio: 859.99,
-        imagen: "iphone.jpeg"
+        nombre: "Llavero escudo",
+        descripcion: "Este llavero con el escudo del Real Betis Balompié es el complemento perfecto para cualquier bético de corazón. Fabricado con materiales resistentes, luce con orgullo los colores y el emblema del equipo en tu día a día.",
+        precio: 3.99,
+        imagen: "llavero.jpg"
     },
     {
         id: 2,
-        nombre: "Portátil LENOVO V15",
-        descripcion: "El Lenovo V15 con procesador Intel N4500 ofrece un rendimiento eficiente para tareas básicas, acompañado de 8 GB de RAM y un rápido SSD de 256 GB. Su diseño delgado y sistema FreeDOS lo hacen ideal para quienes buscan un portátil accesible y personalizable.",
-        precio: 489.75,
-        imagen: "portatil.jpg"
+        nombre: "Camiseta Bakambu",
+        descripcion: "Luce con orgullo la camiseta oficial del Real Betis con el nombre y dorsal de Bakambu, diseñada para los verdaderos fans verdiblancos. Con tejido transpirable y escudo bordado, es perfecta para animar al equipo desde la grada o en tu día a día.",
+        precio: 69.99,
+        imagen: "camiseta.jpg"
     },
     {
         id: 3,
-        nombre: "Pantalla de televisión SONY OLED XR83A80L",
-        descripcion: "El Sony XR-83A80L es un televisor OLED de 83 pulgadas con procesador Cognitive Processor XR que ofrece imágenes ultra realistas y sonido envolvente. Diseñado para cine en casa y gaming, cuenta con tecnología Google TV, HDMI 2.1 y compatibilidad con Dolby Vision y Atmos.",
-        precio: 3499.00,
-        imagen: "tv.jpg"
+        nombre: "Balón de fútbol",
+        descripcion: "Este balón del Real Betis combina diseño deportivo con los icónicos colores del club, ideal para jugar o coleccionar. Resistente y de gran calidad, lleva el escudo verdiblanco para que demuestres tu pasión en cada toque.",
+        precio: 24.99,
+        imagen: "balon.jpg"
     }
 ];
 

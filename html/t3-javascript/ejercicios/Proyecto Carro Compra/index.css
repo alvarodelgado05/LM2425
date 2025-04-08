@@ -34,17 +34,19 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    width: 50%;
+    height: 30px;
 }
 .producto {
-    background-color: white;
+    background-color: #004700;
     border: 1px solid #ddd;
+    color: white;
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 .producto img {
-    width: 100%;
     height: auto;
     max-height: 180px;
     object-fit: cover;
@@ -53,14 +55,15 @@ main {
 .producto button {
     margin-top: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: #004700;
-    color: white;
+    background-color: #ffffff;
+    color: #004700;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 .producto button:hover {
-    background-color: #004700;
+    background-color: #00ff00;
+    color: #004700;
 }
 #carrito {
     margin-left: 15px;

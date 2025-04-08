@@ -1,25 +1,112 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #0a0041;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .cuerpo {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
     color: #333;
-}
-header {
-    background-color: #17009c;
+  }
+  
+  .formulario {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #004700;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #004700;
     color: white;
-    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #004700;
+  }
+  
+  .success {
     text-align: center;
-}
-header h1 {
-    margin: 0;
-    font-size: 2rem;
-}
-nav {
-    margin-top: 0.5rem;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 1rem;
-}
+    padding: 20px;
+    background-color: #ecfdf5;
+    color: #059669;
+    border-radius: 5px;
+    font-size: 18px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .pagotarjeta {
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+  }
+  
+  .tarjetafila {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .tarjetacolumna {
+    flex: 1;
+  }
+  
+  .numerotarjeta{
+    letter-spacing: 1px;
+  }
+  
+  .input-wrapper {
+    position: relative;
+  }
+  
+  @media (max-width: 600px) {
+    .cuerpo {
+      padding: 20px;
+    }
+    
+    .tarjetafila {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
