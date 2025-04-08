@@ -15,16 +15,28 @@
 
 <body>
 
-    <h1>Tienda de productos informáticos</h1>
-    <h3>Realizada por Álvaro Delgado Barrio</h3>
+    <header>
 
-    <nav>
+        <h1>Tienda de Productos Verdiblancos</h1>
+        <h3>Realizada por Álvaro Delgado Barrio</h3>
 
-        <a href="finalizarcompra.html">Finalizar la compra</a>
+    </header>
 
-    </nav>
+    <main>
+        
+        <section id="productos"></section>
 
-    <section id="productos"></section>
+        <aside id="carrito">
+
+            <h2>Carrito</h2>
+            
+            <ul id="lista-carrito"></ul>
+
+            <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button>Finalizar compra <a href="finalizarcompra.html"></a></button>
+        
+        </aside>
+    </main>
 
     <script src="index.js"></script>
     
