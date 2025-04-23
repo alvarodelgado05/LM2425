@@ -6,53 +6,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>jQuery 8</title>
+    <title>jQuery 9</title>
 
     <script src="jquery-3.7.1.js.js"></script>
 
 </head>
 
-<h1>Ejemplo <span style="color: red">de encabezado</span></h1>
-
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat reiciendis doloribus blanditiis eligendi quidem laboriosam consectetur excepturi totam dolore repellat omnis minus ea, aliquam est voluptates, hic, repellendus dolorem? Exercitationem.</p>
-
-<br>
-
-<img src="https://picsum.photos/300" alt="Foto random">
-
-<br><br><br>
-
-<button id="btn1">Mostrar encabezado</button>
-<button id="btn2">Mostrar párrafo</button>
-<button id="btn3">Mostrar imagen</button>
-
-<script>
-
-    $(document).ready(function () {
-
-        $("btn1").click(function () {
-
-            alert("Encabezado: " + $("h1").html());
-            
-        });
-
-        $("btn2").click(function () {
-
-            alert("Párrafo: " + $("p").html());
-            
-        });
-
-        $("btn3").click(function () {
-
-            alert("Imagen: " + $("img").attr("src"));
-            
-        });
-
-    });
-
-</script>
-
 <body>
+
+    <h1>Lista de enlaces</h1>
+
+    <ul>
+        <li><a href="">Elemento 1</a><img src="" alt=""></li>
+        <li><a href="">Elemento 2</a><img src="" alt=""></li>
+        <li><a href="">Elemento 3</a><img src="" alt=""></li>
+        <li><a href="">Elemento 4</a><img src="" alt=""></li>
+        <li><a href="">Elemento 5</a><img src="" alt=""></li>
+    </ul>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("img").each(function (index) {
+
+                $(this).attr("src", "download.png");
+
+            });
+
+        });
+
+    </script>
     
 </body>
 </html>
