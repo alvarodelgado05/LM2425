@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Adivina Cifras</title>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: brown;
+      color: antiquewhite;
+      margin-top: 270px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>¡Adivina la Cifra!</h1>
+  <h3>Introduce un número de 3 cifras:</h3>
+
+  <input type="number" id="numeroUsuario" min="0" max="999" placeholder="Ej: 123">
+  <button id="comprobar">Comprobar</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    function generarNumeroSecreto() {
+      return Math.floor(Math.random() * 1000);
+    }
+
+    let numeroSecreto = localStorage.getItem("numeroSecreto");
+    if (!numeroSecreto) {
+      numeroSecreto = generarNumeroSecreto();
+      localStorage.setItem("numeroSecreto", numeroSecreto);
+    }
+
+    console.log("Número secreto:", numeroSecreto); 
+
+    $('#comprobar').click(function () {
+      const intentoRaw = $('#numeroUsuario').val();
+      if (intentoRaw === "") {
+        $('#resultado').html("⚠️ Por favor, ingresa un número.");
+        return;
+      }
+
+      const intento = intentoRaw.padStart(3, '0');
+      const secreto = numeroSecreto.toString().padStart(3, '0');
+
+      if (intento === secreto) {
+        $('#resultado').html("🎉 <strong>¡Acertaste!</strong> El número era " + secreto + ". Generando uno nuevo...");
+        numeroSecreto = generarNumeroSecreto();
+        localStorage.setItem("numeroSecreto", numeroSecreto);
+        console.log("Nuevo número secreto:", numeroSecreto);
+      }
+      
+      else {
+
+        let coincidencias = 0;
+        
+        for (let i = 0; i < 3; i++) {
+          
+            if (intento[i] === secreto[i]) {
+            
+                coincidencias++;
+
+          }
+
+        }
+
+        $('#resultado').html(`🔍 Coincidencias en posición exacta: <strong>${coincidencias}</strong>`);
+      }
+
+      $('#numeroUsuario').val(""); 
+    });
+  </script>
+</body>
+</html>
