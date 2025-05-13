@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de Círculos</title>
+  <style>
+    body {
+      background-color: rgb(114, 0, 0);
+      color: antiquewhite;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #gameArea {
+      width: 60%;
+      height: 500px;
+      background-color: #f0f0f0;
+      border: 5px solid #ccc;
+      position: relative;
+      overflow: hidden;
+      margin: 20px auto;
+    }
+
+    .circle {
+      background-color: rgb(114, 0, 0);
+      border-radius: 50%;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #startBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #score, #highScore {
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Juego de Círculos</h1>
+  <div id="highScore">Puntuación máxima: 0</div>
+  <button id="startBtn">Iniciar Juego</button>
+  <div id="gameArea"></div>
+  <div id="score">Puntuación: 0</div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      let score = 0;
+      let gameActive = false;
+      let timeoutId;
+      let highScore = localStorage.getItem('highScore') || 0;
+      $('#highScore').text('Puntuación máxima: ' + highScore);
+
+      function createCircle() {
+        const gameArea = $('#gameArea');
+        gameArea.empty(); // Eliminar cualquier círculo anterior
+
+        const circle = $('<div class="circle"></div>');
+
+        const size = Math.floor(Math.random() * 26) + 25; // entre 25 y 50 px
+        const areaWidth = gameArea.width();
+        const areaHeight = gameArea.height();
+        const posX = Math.random() * (areaWidth - size);
+        const posY = Math.random() * (areaHeight - size);
+
+        circle.css({
+          width: size + 'px',
+          height: size + 'px',
+          left: posX + 'px',
+          top: posY + 'px'
+        });
+
+        // Al hacer clic en el círculo
+        circle.on('click', function (e) {
+          if (!gameActive) return;
+          e.stopPropagation(); // Evita que el clic se propague al gameArea
+          score++;
+          $('#score').text('Puntuación: ' + score);
+          createCircle(); // Mostrar siguiente círculo
+        });
+
+        gameArea.append(circle);
+      }
+
+      $('#gameArea').on('click', function () {
+        if (!gameActive) return;
+
+        // Si se hace clic fuera del círculo
+        createCircle(); // Cambiar el círculo de posición
+      });
+
+      $('#startBtn').click(function () {
+        score = 0;
+        gameActive = true;
+        $('#score').text('Puntuación: 0');
+        $('#gameArea').empty();
+
+        createCircle(); // Primer círculo
+
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => {
+          gameActive = false;
+          $('#gameArea').empty();
+
+          if (score > highScore) {
+            highScore = score;
+            localStorage.setItem('highScore', highScore);
+            $('#highScore').text('Puntuación máxima: ' + highScore);
+            alert('¡Nuevo récord! Puntuación final: ' + score);
+          } else {
+            alert('¡Juego terminado! Puntuación final: ' + score);
+          }
+        }, 30000);
+      });
+    });
+  </script>
+
+</body>
+</html>
