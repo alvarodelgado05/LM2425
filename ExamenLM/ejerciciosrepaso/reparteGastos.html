@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparte gastos</title>
+</head>
+<body>
+
+    <h1>Reparte gastos</h1>
+
+        <p>
+            Introduce un número positivo:
+            <input type="text" id="d">
+            <button onclick="anadir()">Añadir</button>
+        </p>
+
+        <p>
+            Introduce un número entero positivo para dividir:
+            <input type="text" id="j">
+            <button onclick="dividir()">Divide</button>
+        </p>
+        <p id="final"></p>
+        <p id="suma"></p>
+        <p id="division"></p>
+
+        <script>
+            var lista = [];
+
+            function anadir()
+            {
+                var dividendo = parseInt(document.getElementById('d').value);
+                var suma = 0;
+                var total = lista.length;
+
+
+                if (isNaN(dividendo) || dividendo<0)
+                {
+                    alert("Por favor, introduce un número positivo.");
+                    return;
+                }
+                lista.push(dividendo);
+                document.getElementById("final").innerHTML = "Elementos en el array (gastos): [" + lista + "]";
+                
+                for (var i = 0; i <= total; i++)
+                {
+                    suma = suma + lista[i];
+                }
+                document.getElementById("suma").innerHTML = "Total gastado: " + suma + " €.";
+            }
+
+            function dividir() {
+                var divisor = parseInt(document.getElementById('j').value);
+
+                if (isNaN(divisor) || divisor<=0)
+                {
+                    alert("Por favor, introduce un número entero y positivo para dividir la cantidad.)");
+                    return;
+                }
+
+                var suma = 0;
+                var total = lista.length;
+                for (var i = 0; i < total; i++)
+                {
+                    suma = suma + lista[i];
+                }
+                var division = suma / divisor;
+                document.getElementById("division").innerHTML = "Cada persona debe aportar: " + division + " €.";
+
+            }
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Suscripción</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    /* Estilo para los checkbox y sus etiquetas para que aparezcan en línea */
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .checkbox-group {
+      margin-top: 10px;
+    }
+    .checkbox-group label {
+      display: inline;
+      font-weight: normal;
+      margin-left: 5px;
+    }
+    /* Estilo para el checkbox de términos y condiciones */
+    .terminos-group {
+      margin-top: 10px;
+    }
+    .terminos-group input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .terminos-group label {
+      display: inline;
+      font-weight: normal;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      visibility: hidden;
+      height: 16px; /* Altura fija para reservar espacio */
+    }
+  </style>
+</head>
+<body>
+
+<!-- <form id="formularioSuscripcion">
+  <label for="nombre">Nombre Completo:</label>
+  <input type="text" id="nombre" name="nombre">
+ <span id="errorNombreCompleto" class="error">Por favor, ingrese un nombre válido.</span>
+
+  <label for="email">Correo Electrónico:</label>
+  <input type="email" id="email" name="email">
+  <span id="errorCorreoElectronico" class="error">Por favor, ingrese un correo electrónico válido.</span>
+
+  <label for="dni">DNI:</label>
+  <input type="text" id="dni" name="dni">
+  <span id="errorDNI" class="error">Por favor, ingrese un DNI válido.</span>
+
+  Grupo de checkbox para preferencias de contenido
+  <label>Preferencias de Contenido:</label>
+  <div class="checkbox-group">
+    <input type="checkbox" id="preferencia" name="preferencia" value="noticias">
+    <label for="preferencia1">Noticias</label>
+    <input type="checkbox" id="preferencia" name="preferencia" value="ofertas">
+    <label for="preferencia2">Ofertas</label>
+  </div>
+  <span id="errorPreferencias" class="error">Por favor, seleccione al menos una preferencia de contenido.</span>
+
+  <label for="frecuenciaEnvio">Frecuencia de Envío:</label>
+  <select id="frecuenciaEnvio" name="frecuenciaEnvio">
+    <option value="">Seleccione una opción</option>
+    <option value="diario">Diario</option>
+    <option value="semanal">Semanal</option>
+    <option value="mensual">Mensual</option>
+  </select>
+  <span id="errorFrecuenciaEnvio" class="error">Por favor, seleccione una frecuencia de envío.</span> -->
+
+  <!-- Checkbox para términos y condiciones
+  <div class="terminos-group">
+    <input type="checkbox" id="checked" name="checked">
+    <label for="checked">Acepto los términos y condiciones</label>
+  </div>
+  <span id="errorTerminos" class="error">Por favor, acepte los términos y condiciones.</span>
+
+  <button type="submit">Suscribirse</button>
+</form> -->
+
+<form id="formularioSuscripcion" novalidate>
+    <div class="form-group">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre">
+        <small class="error" id="error-nombre"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email">
+        <small class="error" id="error-email"></small>
+    </div>
+
+    <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni">
+        <small class="error" id="error-dni"></small>
+    </div>
+
+    <div class="form-group checkbox">
+    <label for="envio">Frecuencia de Envío:</label>
+        <select id="envio" name="envio">
+            <option value="">Seleccione una opción</option>
+            <option value="diario">Diario</option>
+            <option value="semanal">Semanal</option>
+            <option value="mensual">Mensual</option>
+        </select>
+        <small class="error" id="error-envio"></small>
+    </div>
+
+        <label>Preferencias de Contenido:</label>
+        <div class="form-group checkbox"></div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="preferencia" name="preferencia" value="noticias">
+          <label for="preferencia1">Noticias</label>
+          <input type="checkbox" id="preferencia" name="preferencia" value="ofertas">
+          <label for="preferencia2">Ofertas</label>
+        <small class="error" id="error-preferencia"></small>
+    </div>
+
+    <div class="form-group checkbox">
+        <label for="aceptarTerminos">Acepto los términos de uso</label>
+        <input type="checkbox" id="aceptarTerminos" name="aceptarTerminos">
+        <small class="error" id="error-terminos"></small>
+    </div>
+
+    <button type="submit">Suscribirse</button>
+</form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const formulario = document.getElementById('formularioSuscripcion');
+
+    // Funciones de validación para cada campo
+    function validarNombre(nombre) {
+        return nombre.trim().length >= 2;
+    }
+
+    function validarEmail(email) {
+        // Validación básica de email
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email.trim());
+    }
+
+    function validarDNI(dni) {
+        // Al menos 9 caracteres, una mayúscula y un número
+        const regex = /^(1=.*[A-Z])(?=.*\d).{9,}$/;
+        return regex.test(dni);
+    }
+
+    function validarPreferencia(preferencia) {
+        return checked === true;
+    }
+
+    function validarEnvio(envio) {
+        return checked === true;
+    }
+
+    function validarTerminos(checked) {
+        return checked === true;
+    }
+
+    // Mostrar u ocultar error
+    function mostrarError(idError, mensaje) {
+        const errorElem = document.getElementById(idError);
+        errorElem.textContent = mensaje;
+        errorElem.classList.add('activo');
+    }
+
+    function ocultarError(idError) {
+        const errorElem = document.getElementById(idError);
+        errorElem.textContent = '';
+        errorElem.classList.remove('activo');
+    }
+
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Obtener valores
+        const nombre = formulario.nombre.value;
+        const email = formulario.email.value;
+        const dni = formulario.dni.value;
+        const preferencia = formulario.preferencia.checked;
+        const envio = formulario.envio.checked;
+        const terminos = formulario.aceptarTerminos.checked;
+
+        let formularioValido = true;
+
+        // Validar Nombre
+        if (!validarNombre(nombre)) {
+            mostrarError('error-nombre', 'Por favor, ingrese un nombre válido.');
+            formularioValido = false;
+        } else {
+            ocultarError('error-nombre');
+        }
+
+
+        // Validar Email
+        if (!validarEmail(email)) {
+            mostrarError('error-email', 'Por favor, ingrese un correo electrónico válido.');
+            formularioValido = false;
+        } else {
+            ocultarError('error-email');
+        }
+
+        // Validar DNI
+        if (!validarDNI(dni)) {
+            mostrarError('error-dni', 'Por favor, ingrese un DNI válido.');
+            formularioValido = false;
+        } else {
+            ocultarError('error-dni');
+        }
+
+
+        // Validar aceptación de preferencias
+        if (!validarPreferencia(preferencia)) {
+            mostrarError('error-preferencia', 'Por favor, seleccione al menos una preferencia de contenido.');
+            formularioValido = false;
+        } else {
+            ocultarError('error-preferencia');
+        }
+
+        // Validar aceptación de envío
+        if (!validarEnvio(envio)) {
+            mostrarError('error-envio', 'Por favor, seleccione una frecuencia de envío.');
+            formularioValido = false;
+        } else {
+            ocultarError('error-envio');
+        }
+
+        // Validar aceptación de términos
+        if (!validarTerminos(terminos)) {
+            mostrarError('error-terminos', 'Por favor, acepte los términos y condiciones.');
+            formularioValido = false;
+        } else {
+            ocultarError('error-terminos');
+        }
+
+        if (formularioValido) {
+            alert('¡Registrado con éxito!');
+            formulario.reset();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
