@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage con jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Guardar y Recuperar Datos con localStorage</h1>
+    <label for="nombre">Ingresa tu nombre:</label>
+    <input type="text" id="nombre">
+    <button id="guardarNombre">Guardar Nombre</button>
+    <button id="recuperarNombre">Recuperar Nombre</button>
+
+    <p id="mensaje"></p>
+
+    <script>
+        // Función para guardar el nombre usando jQuery
+        $('#guardarNombre').click(function() {
+            // Obtener el valor del input usando jQuery
+            let nombre = $('#nombre').val();
+
+            // Guardar el valor en localStorage
+            localStorage.setItem('nombreUsuario', nombre);
+
+            // Mostrar un mensaje de confirmación
+            alert('Nombre guardado');
+        });
+
+        // Función para recuperar el nombre usando jQuery
+        $('#recuperarNombre').click(function() {
+            // Obtener el valor guardado en localStorage
+            let nombreGuardado = localStorage.getItem('nombreUsuario');
+
+            // Si el nombre existe, mostrarlo, si no, indicar que no se ha guardado
+            if (nombreGuardado) {
+                $('#mensaje').text(`Tu nombre es: ${nombreGuardado}`);
+            } else {
+                $('#mensaje').text('No se ha guardado ningún nombre.');
+            }
+        });
+    </script>
+</body>
+</html>

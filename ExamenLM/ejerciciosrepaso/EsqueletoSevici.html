@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Información de Sevici</title>
+    <link rel="stylesheet" href="sevici.css">
+     <link href="http://api.citybik.es/sevici.json">
+     <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Información de Sevici</h1>
+        <div class="buttons">
+            <button id="numStations">Calcular número de estaciones disponibles</button>
+            <button id="totalBikes">Mostrar total de bicicletas</button>
+            <button id="totalFree">Mostrar total de sitios libres</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+ $(document).ready(function () {
+        let apiURL = "http://api.citybik.es/v2/networks/sevici";
+        let estaciones = [];
+
+        function cargarDatos(callback) {
+            if (estaciones.length > 0) {
+                callback(estaciones);
+            } else {
+                $.ajax({
+                    url: apiURL,
+                    method: "GET",
+                    success: function (data) {
+                        estaciones = data.network.stations;
+                        callback(estaciones);
+                    },
+                    error: function () {
+                        $("#result").text("Error al cargar los datos del servidor.");
+                    }
+                });
+            }
+        }
+
+        $("#numStations").click(function () {
+            cargarDatos(function (estaciones) {
+                $("#result").text("Número de estaciones disponibles: " + estaciones.length);
+            });
+        });
+
+        $("#totalBikes").click(function () {
+            cargarDatos(function (estaciones) {
+                let totalBicis = estaciones.reduce((sum, est) => sum + est.free_bikes, 0);
+                $("#result").text("Total de bicicletas disponibles: " + totalBicis);
+            });
+        });
+
+        $("#totalFree").click(function () {
+            cargarDatos(function (estaciones) {
+                let totalLibres = estaciones.reduce((sum, est) => sum + est.empty_slots, 0);
+                $("#result").text("Total de sitios libres: " + totalLibres);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

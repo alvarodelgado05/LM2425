@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage con JavaScript</title>
+</head>
+<body>
+    <h1>Guardar y Recuperar Datos con localStorage</h1>
+    <label for="nombre">Ingresa tu nombre:</label>
+    <input type="text" id="nombre">
+    <button onclick="guardarNombre()">Guardar Nombre</button>
+    <button onclick="recuperarNombre()">Recuperar Nombre</button>
+
+    <p id="mensaje"></p>
+
+    <script>
+        // Función para guardar el nombre en localStorage
+        function guardarNombre() {
+            // Obtener el valor del input
+            let nombre = document.getElementById('nombre').value;
+
+            // Guardar el valor del input en localStorage
+            localStorage.setItem('nombreUsuario', nombre);
+
+            // Mostrar un mensaje confirmando que el nombre ha sido guardado
+            alert('Nombre guardado');
+        }
+
+        // Función para recuperar el nombre de localStorage
+        function recuperarNombre() {
+            // Obtener el valor guardado en localStorage
+            let nombreGuardado = localStorage.getItem('nombreUsuario');
+
+            // Si el nombre existe, mostrarlo, si no, indicar que no se ha guardado
+            if (nombreGuardado) {
+                document.getElementById('mensaje').textContent = `Tu nombre es: ${nombreGuardado}`;
+            } else {
+                document.getElementById('mensaje').textContent = 'No se ha guardado ningún nombre.';
+            }
+        }
+    </script>
+</body>
+</html>

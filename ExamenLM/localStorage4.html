@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 4: Eliminar Tareas</title>
+<script>
+// Función para agregar una nueva tarea
+function agregarTarea() {
+    // Obtiene el valor del input con id 'tarea'
+    const tarea = document.getElementById('tarea').value;
+    
+    // Si el valor no está vacío
+    if (tarea) {
+        // Obtiene el elemento ul con id 'listaTareas'
+        const lista = document.getElementById('listaTareas');
+        
+        // Crea un nuevo elemento li (lista)
+        const elemento = document.createElement('li');
+        // Establece el contenido del elemento li con la tarea ingresada
+        elemento.textContent = tarea;
+        
+        // Crea un botón para eliminar la tarea
+        const botonEliminar = document.createElement('button');
+        botonEliminar.textContent = 'Eliminar';
+        // Al hacer clic en el botón, se elimina la tarea de la lista
+        botonEliminar.onclick = function() {
+            lista.removeChild(elemento); // Elimina el elemento li de la lista
+            guardarTareas(); // Guarda las tareas restantes en localStorage
+        };
+        
+        // Añade el botón de eliminar al elemento li
+        elemento.appendChild(botonEliminar);
+        // Añade el elemento li a la lista
+        lista.appendChild(elemento);
+
+        // Llama a la función para guardar las tareas en localStorage
+        guardarTareas();
+    }
+}
+
+// Función para guardar las tareas en localStorage
+function guardarTareas() {
+    const tareas = [];
+    // Recorre todas las tareas en la lista y las agrega al array 'tareas'
+    document.querySelectorAll('#listaTareas li').forEach(function(item) {
+        tareas.push(item.firstChild.textContent); // Toma el texto de cada tarea
+    });
+    // Guarda el array de tareas en localStorage
+    localStorage.setItem('tareas', JSON.stringify(tareas));
+}
+
+// Función para cargar las tareas desde localStorage cuando se recarga la página
+function cargarTareas() {
+    // Obtiene las tareas guardadas en localStorage y las parsea de JSON a un objeto
+    const tareas = JSON.parse(localStorage.getItem('tareas'));
+    // Si existen tareas, las agrega a la lista en la página
+    if (tareas) {
+        const lista = document.getElementById('listaTareas');
+        tareas.forEach(function(tarea) {
+            // Crea un nuevo elemento li para cada tarea
+            const elemento = document.createElement('li');
+            elemento.textContent = tarea;
+            
+            // Crea un botón de eliminar para cada tarea
+            const botonEliminar = document.createElement('button');
+            botonEliminar.textContent = 'Eliminar';
+            botonEliminar.onclick = function() {
+                lista.removeChild(elemento); // Elimina la tarea
+                guardarTareas(); // Guarda las tareas restantes en localStorage
+            };
+            
+            // Añade el botón de eliminar al li y lo añade a la lista
+            elemento.appendChild(botonEliminar);
+            lista.appendChild(elemento);
+        });
+    }
+}
+
+// Cuando la página se ha cargado completamente, carga las tareas guardadas
+window.onload = cargarTareas;
+</script>
+
+
+</head>
+<body>
+
+<!-- Campo de texto para ingresar nuevas tareas -->
+<input type="text" id="tarea">
+<!-- Botón para agregar la tarea a la lista -->
+<button onclick="agregarTarea()">Agregar Tarea</button>
+
+<!-- Lista desordenada donde se agregarán las tareas -->
+<ul id="listaTareas"></ul>
+
+</body>
+</html>

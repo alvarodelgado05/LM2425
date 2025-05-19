@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Juego de Círculos</title>
+  <style>
+    #juego {
+      width: 600px;
+      height: 400px;
+      border: 2px solid #000;
+      position: relative;
+      overflow: hidden;
+      background-color: #f0f0f0;
+    }
+
+    .circulo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      background-color: red;
+      cursor: pointer;
+    }
+
+    #puntuacion, #mejor {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Juego de Círculos</h2>
+<p>Puntuación: <span id="puntuacion">0</span> | Mejor puntuación: <span id="mejor">0</span></p>
+<div id="juego"></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="juego.js"></script>
+
+</body>
+</html>

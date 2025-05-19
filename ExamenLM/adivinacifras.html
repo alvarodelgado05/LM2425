@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivina Cifras</title>
+</head>
+<body>
+    <h1>Juego: Adivina Cifras</h1>
+    <p>¡Intenta adivinar el número de 4 cifras!</p>
+
+    <!-- Botón para comenzar el juego -->
+    <button onclick="jugar()">Comenzar juego</button>
+
+    <script>
+        // Función principal del juego
+        function jugar() {
+            // Generar un número aleatorio de 4 cifras entre 1000 y 9999
+            let numeroSecreto = Math.floor(Math.random() * 9000) + 1000;
+
+            // Inicializar el contador de intentos
+            let intentos = 0;
+
+            // Recuperar la mejor puntuación almacenada localmente
+            let mejorPuntuacion = localStorage.getItem('mejorPuntuacion');
+
+            // Si no existe una puntuación guardada, asignamos "Infinity" como el valor inicial
+            if (mejorPuntuacion === null) {
+                mejorPuntuacion = Infinity;
+            } else {
+                mejorPuntuacion = parseInt(mejorPuntuacion); // Convertir la puntuación guardada a número
+            }
+
+            // Mensaje de bienvenida para el jugador
+            alert("¡Bienvenido a Adivina Cifras! Tienes que adivinar un número de 4 cifras.");
+
+            // Variable para controlar si el número ha sido adivinado
+            let adivinado = false;
+
+            // Comienza el bucle de juego
+            do {
+                // Solicitar al jugador que ingrese un número de 4 cifras
+                let intentoUsuario = prompt("Introduce un número de 4 cifras:");
+
+                // Si el usuario cancela la acción, mostrar mensaje y finalizar el juego
+                if (intentoUsuario === null) {
+                    alert("Has cancelado el juego.");
+                    break;
+                }
+
+                // Verificar que el número ingresado sea de 4 cifras
+                if (intentoUsuario.length !== 4 || isNaN(intentoUsuario)) {
+                    alert("Debes introducir un número de 4 cifras.");
+                    continue; // Si no es válido, continuar pidiendo un número
+                }
+
+                // Incrementar el contador de intentos
+                intentos++;
+
+                // Comprobar si el número ingresado coincide con el número secreto
+                if (parseInt(intentoUsuario) === numeroSecreto) {
+                    // Si el número es correcto, felicitar al jugador
+                    alert("¡Enhorabuena! Has adivinado el número en " + intentos + " intentos.");
+                    adivinado = true;
+
+                    // Comprobar si el jugador ha batido su mejor puntuación
+                    if (intentos < mejorPuntuacion) {
+                        localStorage.setItem('mejorPuntuacion', intentos); // Guardar el nuevo récord
+                        alert("¡Nuevo récord de intentos: " + intentos + "!");
+                    } else {
+                        alert("Tu mejor puntuación es: " + mejorPuntuacion + " intentos.");
+                    }
+                } else {
+                    // Variables para contar cifras correctas en la posición correcta e incorrecta
+                    let correctoPosicion = 0;
+                    let correctoNoPosicion = 0;
+
+                    // Convertir tanto el número secreto como el intento a cadenas para comparar las cifras
+                    let secreto = numeroSecreto.toString();
+                    let intento = intentoUsuario.toString();
+
+                    // Arrays para hacer seguimiento de qué cifras se han usado en el número secreto y en el intento
+                    let usadoSecreto = [false, false, false, false];
+                    let usadoIntento = [false, false, false, false];
+
+                    // Comprobar las cifras correctas en la posición correcta
+                    for (let i = 0; i < 4; i++) {
+                        if (secreto[i] === intento[i]) {
+                            correctoPosicion++; // Incrementar el contador de cifras correctas en la posición correcta
+                            usadoSecreto[i] = true; // Marcar la cifra como usada en el número secreto
+                            usadoIntento[i] = true; // Marcar la cifra como usada en el intento
+                        }
+                    }
+
+                    // Comprobar las cifras correctas en la posición incorrecta
+                    for (let i = 0; i < 4; i++) {
+                        if (!usadoIntento[i]) { // Solo revisar cifras no usadas en el intento
+                            for (let j = 0; j < 4; j++) {
+                                if (!usadoSecreto[j] && intento[i] === secreto[j]) {
+                                    correctoNoPosicion++; // Incrementar el contador de cifras correctas en posición incorrecta
+                                    usadoSecreto[j] = true; // Marcar la cifra como usada en el número secreto
+                                    break;
+                                }
+                            }
+                        }
+                    }
+
+                    // Mostrar las pistas al jugador: cifras correctas en la posición correcta y en la incorrecta
+                    alert("Cifras correctas en la posición correcta: " + correctoPosicion + "\n" +
+                          "Cifras correctas en otra posición: " + correctoNoPosicion);
+                }
+            } while (!adivinado); // Continuar hasta que el jugador adivine el número
+        }
+    </script>
+</body>
+</html>
