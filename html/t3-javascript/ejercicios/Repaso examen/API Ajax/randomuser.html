@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios aleatorios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js "></script>
+    <style>
+        body {
+            background-color: rgb(240, 239, 239);
+        }
+
+        #flex {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .circle {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container'>
+        <div id='flex' class='card'>
+            <div class="card-header">
+                <h3 class="card-title">Generador de usuarios</h3>
+            </div>
+            <div class="card-body">
+                <div class='usuario'>
+                    <img src='' class='circle'>
+                    <p class='fullname'></p>
+                    <p class='username'></p>
+                    <p class='email'></p>
+                    <p class='city'></p>
+                    <div class="card-footer">
+                        <button id="btn-generico" class='btn btn-primary'>Genérico</button>
+                        <button id="btn-espanol" class='btn btn-primary'>Español</button>
+                        <button id="btn-varios" class='btn btn-primary'>5 Españoles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $('#generarUsuario').on('click', function () {
+          let usuarioDiv = $('#usuarioInfo');
+          let errorDiv = $('#mensajeError');
+
+          // Limpiar mensajes anteriores
+          perfilDiv.hide();
+
+          // Hacer petición GET a la API de RandomUser
+          $.get('https://randomuser.me/api/', function (data) {
+            $('#avatar').attr('src', data.avatar_url);
+            $('#nombre').text(data.name || 'Sin nombre');
+            $('#login').text(data.login);
+            $('#bio').text(data.bio || 'Sin biografía');
+            $('#repos').text(data.public_repos);
+            $('#enlacePerfil').attr('href', data.html_url);
+
+            perfilDiv.show();
+          }).fail(function () { // Se ejecuta cuando falla
+            errorDiv.text('Usuario no encontrado o error en la API.').show();
+            perfilDiv.hide();
+          });
+        });
+      });
+    </script>
+</body>
+
+</html>

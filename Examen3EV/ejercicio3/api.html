@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscar Usuario de GitHub</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js "></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .perfil {
+      margin-top: 30px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      background-color: #fff;
+      max-width: 500px;
+    }
+    .perfil img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .error {
+      color: red;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Buscar Perfil de GitHub</h1>
+  <input type="text" id="usuarioGitHub" placeholder="Introduce nombre de usuario">
+  <button id="buscarUsuario">Buscar</button>
+
+  <div class="perfil" id="perfilInfo" style="display:none;">
+    <img id="avatar" src="" alt="Avatar">
+    <h2 id="nombre"></h2>
+    <p><strong>Login:</strong> <span id="login"></span></p>
+    <p><strong>Biografía:</strong> <span id="bio"></span></p>
+    <p><strong>Repositorios públicos:</strong> <span id="repos"></span></p>
+    <p><a id="enlacePerfil" href="#" target="_blank">Ver perfil en GitHub</a></p>
+  </div>
+
+  <div class="error" id="mensajeError" style="display:none;"></div>
+
+  <script>
+    $(document).ready(function () {
+      $('#buscarUsuario').on('click', function () {
+        let username = $('#usuarioGitHub').val().trim();
+        let perfilDiv = $('#perfilInfo'); 
+        let errorDiv = $('#mensajeError');
+
+        if (!username) {
+          errorDiv.text("Por favor, introduce un nombre de usuario.").show(); // Texto de error
+          perfilDiv.hide();
+          return; // Finaliza
+        }
+        
+        // Limpiar mensajes anteriores
+        errorDiv.hide();
+        perfilDiv.hide();
+
+        // Hacer petición GET a la API de GitHub
+        $.get(`https://api.github.com/users/${username}`, function (data) {
+          $('#avatar').attr('src', data.avatar_url);
+          $('#nombre').text(data.name || 'Sin nombre');
+          $('#login').text(data.login);
+          $('#bio').text(data.bio || 'Sin biografía');
+          $('#repos').text(data.public_repos);
+          $('#enlacePerfil').attr('href', data.html_url);
+
+          perfilDiv.show();
+        }).fail(function () { // Se ejecuta cuando falla
+          errorDiv.text('Usuario no encontrado o error en la API.').show();
+          perfilDiv.hide();
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

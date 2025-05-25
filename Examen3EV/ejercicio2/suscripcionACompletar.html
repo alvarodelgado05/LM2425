@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Suscripción</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    /* Estilo para los checkbox y sus etiquetas para que aparezcan en línea */
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .checkbox-group {
+      margin-top: 10px;
+    }
+    .checkbox-group label {
+      display: inline;
+      font-weight: normal;
+      margin-left: 5px;
+    }
+    /* Estilo para el checkbox de términos y condiciones */
+    .terminos-group {
+      margin-top: 10px;
+    }
+    .terminos-group input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .terminos-group label {
+      display: inline;
+      font-weight: normal;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      visibility: hidden;
+      height: 16px; /* Altura fija para reservar espacio */
+    }
+  </style>
+</head>
+<body>
+
+<form id="formularioSuscripcion">
+  <label for="nombreCompleto">Nombre Completo:</label>
+  <input type="text" id="nombreCompleto" name="nombreCompleto">
+  <span id="errorNombreCompleto" class="error">Por favor, ingrese un nombre válido.</span>
+
+  <label for="correoElectronico">Correo Electrónico:</label>
+  <input type="email" id="correoElectronico" name="correoElectronico">
+  <span id="errorCorreoElectronico" class="error">Por favor, ingrese un correo electrónico válido.</span>
+
+  <label for="dni">DNI:</label>
+  <input type="text" id="dni" name="dni">
+  <span id="errorDNI" class="error">Por favor, ingrese un DNI válido.</span>
+
+  <!-- Grupo de checkbox para preferencias de contenido -->
+  <label>Preferencias de Contenido:</label>
+  <div class="checkbox-group">
+    <input type="checkbox" id="preferencia1" name="preferencia" value="noticias">
+    <label for="preferencia1">Noticias</label>
+    <input type="checkbox" id="preferencia2" name="preferencia" value="ofertas">
+    <label for="preferencia2">Ofertas</label>
+  </div>
+  <span id="errorPreferencias" class="error">Por favor, seleccione al menos una preferencia de contenido.</span>
+
+  <label for="frecuenciaEnvio">Frecuencia de Envío:</label>
+  <select id="frecuenciaEnvio" name="frecuenciaEnvio">
+    <option value="">Seleccione una opción</option>
+    <option value="diario">Diario</option>
+    <option value="semanal">Semanal</option>
+    <option value="mensual">Mensual</option>
+  </select>
+  <span id="errorFrecuenciaEnvio" class="error">Por favor, seleccione una frecuencia de envío.</span>
+
+  <!-- Checkbox para términos y condiciones -->
+  <div class="terminos-group">
+    <input type="checkbox" id="terminos" name="terminos">
+    <label for="terminos">Acepto los términos y condiciones</label>
+  </div>
+  <span id="errorTerminos" class="error">Por favor, acepte los términos y condiciones.</span>
+
+  <button type="submit">Suscribirse</button>
+</form>
+
+<script>
+  document.getElementById('formularioSuscripcion').addEventListener('submit', function(evento) {
+    evento.preventDefault(); // Esto es para que no se envíe
+
+    let nombreCompleto = document.getElementById('nombreCompleto').value;
+    let correoElectronico = document.getElementById('correoElectronico').value;
+    let dni = document.getElementById('dni').value;
+    let preferencia1 = document.getElementById('preferencia1').checked;
+    let preferencia2 = document.getElementById('preferencia2').checked;
+    let frecuenciaEnvio = document.getElementById('frecuenciaEnvio').checked;
+    let terminos = document.getElementById('terminos').checked;
+    let esValido = true;
+
+    // Validación del nombre completo
+    if (!validarNombre(nombreCompleto)) {
+      document.getElementById('errorNombreCompleto').style.visibility = 'visible';
+      esValido = false;
+    } else {
+      document.getElementById('errorNombreCompleto').style.visibility = 'hidden';
+    }
+
+        // Validación del correo electrónico
+    if (!validarCorreoElectronico(correoElectronico)) {
+      document.getElementById('errorCorreoElectronico').style.visibility = 'visible';
+      esValido = false;
+    } else {
+      document.getElementById('errorCorreoElectronico').style.visibility = 'hidden';
+    }
+
+    // Validación del DNI
+    if (!validarDNI(dni)) {
+      document.getElementById('errorDNI').style.visibility = 'visible';
+      esValido = false;
+    } else {
+      document.getElementById('errorDNI').style.visibility = 'hidden';
+    }
+
+    // Validación de preferencias
+    if (!validarPreferencias(preferencia1, preferencia2)) {
+      document.getElementById('errorPreferencias').style.visibility = 'visible';
+      esValido = false;
+    } else {
+      document.getElementById('errorPreferencias').style.visibility = 'hidden';
+    }
+
+    // Validación de la frecuencia de envío
+    if (!validarFrecuenciaEnvio(frecuenciaEnvio)) {
+      document.getElementById('errorFrecuenciaEnvio').style.visibility = 'visible';
+      esValido = false;
+    } else {
+      document.getElementById('errorFrecuenciaEnvio').style.visibility = 'hidden';
+    }
+
+    // Validación de términos y condiciones
+    if (!validarTerminos(terminos)) {
+      document.getElementById('errorTerminos').style.visibility = 'visible';
+      esValido = false;
+    } else {
+      document.getElementById('errorTerminos').style.visibility = 'hidden';
+    }
+
+    if (esValido) {
+      alert('Formulario enviado con éxito.');
+    }
+
+  });
+
+      // Función para validar el nombre
+      function validarNombre(nombre) {
+        let valido = false;
+        if (nombre != "") { // Ha escrito algo...
+          valido = true;
+        }
+        return valido;
+      }
+      
+      // Función para validar el correo electrónico
+      function validarCorreoElectronico(correo) {
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let valido = false;
+        if (regex.test(correo)) {
+          valido = true;
+        }
+        return valido;
+      }
+
+      // Función para validar el DNI
+      function validarDNI(dni) {
+        let dniRegex = /^\d{8}[A-Z]$/; // 8 dígitos y una letra mayúscula
+        let valido = false;
+        if (dniRegex.test(dni)) {
+          valido = true;
+        }
+        return valido;
+      }
+
+      // Función para validar las preferencias
+      function validarPreferencias(preferencia1, preferencia2) {
+        let almenosUna = false;
+        if (preferencia1) {
+          almenosUna = true;
+        } else if (preferencia2) {
+          almenosUna = true;
+        }
+        return almenosUna;
+      }
+
+      // Función para validar la frecuencia de envío
+      function validarFrecuenciaEnvio(frecuencia) {
+        let valido = false;
+        if (frecuencia !== "") { // Ha seleccionado alguno
+          valido = true;
+        }
+        return valido;
+      }
+
+      // Función para validar los términos y condiciones
+      function validarTerminos(aceptado) {
+        let valido = false;
+        if (aceptado) {
+          valido = true;
+        }
+        return valido;
+      }
+
+</script>
+
+</body>
+</html>
